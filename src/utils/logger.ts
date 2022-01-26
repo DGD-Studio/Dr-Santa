@@ -97,5 +97,4 @@ export function logger({
     };
 }
 
-export const log = logger();
-export default log;
+export default logger({ name: "Main Bot" })

@@ -1,6 +1,8 @@
 import { handleRequest } from "./handleRequest.ts"
 import { REST_PORT } from "../../config.ts";
-import log from "../utils/logger.ts"
+import { logger } from "../utils/logger.ts"
+
+const log = logger({ name: "Global Rest HAndler" })
 
 const server = Deno.listen({ port: REST_PORT })
 log.info(

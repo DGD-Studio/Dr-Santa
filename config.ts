@@ -3,7 +3,6 @@ import { dotEnvConfig, GatewayIntents } from "./deps.ts"
 const env = dotEnvConfig({ export: true })
 
 export const GATEWAY_INTENTS: (keyof typeof GatewayIntents)[] = [
-    "GuildEmojis",
     "GuildMembers",
     "Guilds"
 ]
@@ -12,7 +11,7 @@ if (!env.BOT_TOKEN) {
     throw new Error("Discord token is missing");
 }
 
-export const BOT_TOKEN = `Bot ${env.BOT_TOKEN!}`;
+export const BOT_TOKEN = env.BOT_TOKEN;
 
 export const MAX_SHARDS = env.MAX_SHARDS ? parseInt(env.MAX_SHARDS, 10) : 0;
 export const FIRST_SHARD_ID = env.FIRST_SHARD_ID ? parseInt(env.FIRST_SHARD_ID, 10) : 0;
@@ -34,30 +33,16 @@ if (!URL_GATEWAY_PROXY_WILL_FORWARD_TO) {
     );
 }
 
-export const EVENT_HANDLER_URL = env
-    .EVENT_HANDLER_URL!;
-if (!EVENT_HANDLER_URL) {
+export const REST_HANDLER_URL = env
+    .REST_HANDLER_URL!;
+if (!REST_HANDLER_URL) {
     throw new Error(
-        "Don't you think you need to give a URL where you want your events sent to?",
-    );
-}
-
-export const GATEWAY_SECRET_KEY = env.GATEWAY_SECRET_KEY!;
-if (!GATEWAY_SECRET_KEY) {
-    throw new Error(
-        "Do you want to be hacked? Add a secret authorization key that can be used to identify requests are from you.",
+        "Don't you think you need to give a URL where you want your requests sent to?",
     );
 }
 
 export const REST_AUTHORIZATION_KEY = env.REST_AUTHORIZATION_KEY!;
 if (!REST_AUTHORIZATION_KEY) {
-    throw new Error(
-        "Do you want to be hacked? Add a secret authorization key to make sure requests are only made by you.",
-    );
-}
-
-export const EVENT_HANDLER_SECRET_KEY = env.EVENT_HANDLER_SECRET_KEY!;
-if (!EVENT_HANDLER_SECRET_KEY) {
     throw new Error(
         "Do you want to be hacked? Add a secret authorization key to make sure requests are only made by you.",
     );
@@ -69,8 +54,6 @@ if (!BOT_ID) {
 }
 
 export const REST_PORT = env.REST_PORT ? parseInt(env.REST_PORT, 10) : 5000;
-export const GATEWAY_PORT = env.GATEWAY_PORT ? parseInt(env.GATEWAY_PORT, 10) : 8080;
-export const EVENT_HANDLER_PORT = env.EVENT_HANDLER_PORT ? parseInt(env.EVENT_HANDLER_PORT, 10) : 7050;
 
 export const DEVELOPMENT = env.DEVELOPMENT ?? true;
 export const DEV_GUILD_ID = env.DEV_GUILD_ID ? BigInt(env.DEV_GUILD_ID) : 0n;
