@@ -1,9 +1,9 @@
 import { BOT_TOKEN, BOT_ID, GATEWAY_INTENTS } from "../../config.ts"
 import { createBot, startBot, enableCachePlugin, enableCacheSweepers } from "../../deps.ts"
 import { rest } from "../utils/rest.ts"
-import { eventData, applyEvents } from "./events/mod.ts"
+import { eventData, registerEvents } from "./events/mod.ts"
 
-await applyEvents()
+await registerEvents()
 export const bot = enableCachePlugin(createBot({
     token: BOT_TOKEN,
     botId: BOT_ID,

@@ -1,4 +1,4 @@
-import { bold, cyan, gray, italic, red, yellow } from "../../deps.ts";
+import { bold, cyan, white, italic, red, yellow } from "../../deps.ts";
 
 export enum Loglevels {
     Debug,
@@ -18,7 +18,7 @@ const prefixes = new Map<Loglevels, string>([
 
 const noColor: (str: string) => string = (msg) => msg;
 const colorFunctions = new Map<Loglevels, (str: string) => string>([
-    [Loglevels.Debug, gray],
+    [Loglevels.Debug, white],
     [Loglevels.Info, cyan],
     [Loglevels.Warn, yellow],
     [Loglevels.Error, (str: string) => red(str)],
