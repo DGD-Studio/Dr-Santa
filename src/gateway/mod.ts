@@ -32,5 +32,5 @@ const gateway = createGatewayManager({
     handleDiscordPayload,
 });
 
-
+log.info(`Gateway is live.`)
 gateway.spawnShards(gateway);

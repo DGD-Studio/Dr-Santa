@@ -15,6 +15,6 @@ export async function handleDiscordPayload(gateway: GatewayManager, data: Gatewa
         }),
     })
         // BELOW IS FOR DENO MEMORY LEAK
-        .then((res) => console.log(res.text()))
-        .catch(() => null);
+        .then((res) => res.text())
+        .catch(console.warn);
 }
