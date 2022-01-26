@@ -1,8 +1,9 @@
 import { handleRequest } from "./handleRequest.ts"
 import { REST_PORT } from "../../config.ts";
+import log from "../utils/logger.ts"
 
 const server = Deno.listen({ port: REST_PORT })
-console.log(
+log.info(
     `HTTP webserver running.  Access it at:  http://localhost:${REST_PORT}/`,
 );
 

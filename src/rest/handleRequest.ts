@@ -20,7 +20,7 @@ export async function handleRequest(conn: Deno.Conn) {
     }
 
     const json = (await requestEvent.request.json());
-    console.log(json)
+    console.log("REST", json)
     // IMPLEMENT ANY ERROR HANDLING HERE IF YOU WOULD LIKE BY WRAPPING THIS IN A CATCH
 
     // MAKE THE REQUEST TO DISCORD
