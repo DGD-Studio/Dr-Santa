@@ -1,0 +1,1 @@
+rest: deno run -A --unstable src/rest/mod.ts
