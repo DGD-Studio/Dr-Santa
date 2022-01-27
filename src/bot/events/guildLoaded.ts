@@ -1,9 +1,10 @@
 import { eventData } from "./mod.ts"
 import { Bot, DiscordenoGuild, GatewayOpcodes } from "../../../deps.ts"
 import { bot } from "../mod.ts"
-import { fromGuild } from "../../cache/entities/guild.ts"
+import { fromGuild } from "../../cache/models/guild.ts"
 
 export function setGuildLoadedEvent() {
+    eventData.log.info(`Guild loaded Event loaded`)
     return eventData.events.guildLoaded = async (_denobot: Bot, guild: DiscordenoGuild) => {
         eventData.log.info(`New Guild loaded with Id ${guild.id}, caching`)
 
