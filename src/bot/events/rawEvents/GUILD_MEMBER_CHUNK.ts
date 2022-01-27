@@ -1,4 +1,4 @@
-import { Bot, GatewayPayload } from "../../../../deps.ts"
+import { Bot as _Bot, GatewayPayload } from "../../../../deps.ts"
 
 export function guildMembersChunkEventHandler(_payload: GatewayPayload) {
     return
