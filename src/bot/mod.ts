@@ -12,6 +12,6 @@ export const bot = extendBotWithCache(createBot({
     intents: GATEWAY_INTENTS,
     events: eventData.events,
 }))
-bot.rest = rest
+//bot.rest = rest
 
 await startBot(bot)
