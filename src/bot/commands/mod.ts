@@ -1,0 +1,1 @@
+export const commands: Map<string, null> = new Map()

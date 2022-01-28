@@ -6,6 +6,7 @@ import { fromMember } from "../../cache/models/member.ts"
 export function setGuildMemberAddEvent() {
     eventData.log.info(`GuildMemberAdd event loaded`)
     return eventData.events.guildMemberAdd = async (_denobot: Bot, member: DiscordenoMember, user: DiscordenoUser) => {
+        eventData.log.info(`New Member, Caching`)
         const memberModel = fromMember({
             avatar: member.avatar?.toString(),
             communicationDisabledUntil: member.communicationDisabledUntil,

@@ -4,6 +4,8 @@ import { setGuildLoadedEvent } from "./guildLoaded.ts"
 import { setGuildMemberUpdateEvent } from "./guildMemberUpdate.ts"
 import { setRawEvent } from "./raw.ts"
 import { setReadyEvent } from "./ready.ts"
+import { setGuildMemberAddEvent } from "./guildMemberAdd.ts"
+import { setGuildMemberRemoveEvent } from "./guildMemberRemove.ts"
 
 const log1 = logger({ name: "Santa Event Loader" })
 const log2 = logger({ name: "Santa Events" })
@@ -19,4 +21,6 @@ export function registerEvents() {
     setGuildMemberUpdateEvent()
     setRawEvent()
     setReadyEvent()
+    setGuildMemberAddEvent()
+    setGuildMemberRemoveEvent()
 }
