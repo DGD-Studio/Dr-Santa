@@ -12,7 +12,7 @@ export async function guildMembersChunkEventHandler(payload: GatewayPayload) {
 
     const data: Record<string, string> = {}
     chunk.members.map(
-        member => data[`"Member:${member.user.id}:${chunk.guild_id}`] = JSON.stringify(fromMember({
+        member => data[`Member:${member.user.id}:${chunk.guild_id}`] = JSON.stringify(fromMember({
             avatar: member.avatar,
             communicationDisabledUntil: member.communication_disabled_until,
             deaf: member.deaf,
