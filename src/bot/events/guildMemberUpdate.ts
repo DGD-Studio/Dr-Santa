@@ -7,9 +7,9 @@ export function setGuildMemberUpdateEvent() {
     eventData.log.info(`Guild Member Update Event loaded`)
     return eventData.events.guildMemberUpdate = async (_denobot: Bot, member: DiscordenoMember, user: DiscordenoUser) => {
         eventData.log.info(`Guild Member Update, Updating Cache`)
-        const isInCache = await bot.redisCache.has("Member", user.id.toString())
+        const isInCache = await bot.redisCache.has("Member", `${user.id.toString()}:${member.guildId}`)
         if (isInCache) {
-            await bot.redisCache.delete("Member", user.id.toString())
+            await bot.redisCache.delete("Member", `${user.id.toString()}:${member.guildId}`)
         }
 
         const memberModel = fromMember({
@@ -27,6 +27,6 @@ export function setGuildMemberUpdateEvent() {
             user: { id: user.id.toString(), discriminator: user.discriminator.toString(), username: user.username, avatar: user.avatar?.toString() }
         })
 
-        return bot.redisCache.set("Member", user.id.toString(), memberModel)
+        return bot.redisCache.set("Member", `${user.id.toString()}:${member.guildId}`, memberModel)
     }
 }

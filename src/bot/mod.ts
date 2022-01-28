@@ -1,6 +1,6 @@
 import { BOT_TOKEN, BOT_ID, GATEWAY_INTENTS } from "../../config.ts"
 import { createBot, startBot, } from "../../deps.ts"
-import { rest } from "../utils/rest.ts"
+//import { rest } from "../utils/rest.ts"
 import { eventData, registerEvents } from "./events/mod.ts"
 import { extendBotWithCache } from "../cache/mod.ts"
 

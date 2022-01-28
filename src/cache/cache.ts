@@ -14,6 +14,7 @@ const redis = await redisConnect({
     password: "verysecretpassword69420"
 })
 log.info(`Connected to Redis`)
+redis.flushall()
 
 export const MemberIds: Set<string> = new Set()
 export const GuildIds: Set<string> = new Set()
